@@ -1,0 +1,17 @@
+node_modules/
+.DS_Store
+*.log
+
+# Binaries too large for git — upload via GitHub Releases
+releases/*.zip
+releases/*.dmg
+
+# Build output
+mcp-server/dist/
+
+# Claude Code
+.claude/
+
+# Environment
+.env
+.env.*

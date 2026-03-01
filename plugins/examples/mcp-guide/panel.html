@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 16px;
+    overflow-y: auto;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .header h1 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #cdd6f4;
+  }
+  .close-btn {
+    background: none;
+    border: 1px solid #45475a;
+    color: #6c7086;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 1;
+  }
+  .close-btn:hover { color: #cdd6f4; border-color: #585b70; }
+  .cwd {
+    font-size: 11px;
+    color: #6c7086;
+    margin-bottom: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .cwd span { color: #89b4fa; }
+  h2 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #89b4fa;
+    margin: 16px 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  h2:first-of-type { margin-top: 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+  }
+  td {
+    padding: 4px 0;
+    vertical-align: top;
+    border-bottom: 1px solid #313244;
+  }
+  td:first-child {
+    color: #a6e3a1;
+    font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    font-size: 11px;
+    white-space: nowrap;
+    padding-right: 10px;
+    width: 1%;
+  }
+  td:last-child {
+    color: #a6adc8;
+    font-size: 12px;
+  }
+  .param {
+    color: #f9e2af;
+    font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    font-size: 10px;
+  }
+  .workflow {
+    background: #181825;
+    border: 1px solid #313244;
+    padding: 12px;
+    margin-top: 8px;
+    font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    font-size: 11px;
+    line-height: 1.7;
+    overflow-x: auto;
+  }
+  .workflow .comment { color: #6c7086; }
+  .workflow .fn { color: #89b4fa; }
+  .workflow .str { color: #a6e3a1; }
+  .workflow .kw { color: #cba6f7; }
+  .step-num {
+    display: inline-block;
+    background: #89b4fa;
+    color: #1e1e2e;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 16px;
+    margin-right: 6px;
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>Sparrow MCP Guide</h1>
+    <button class="close-btn" id="close-btn" title="Close">&times;</button>
+  </div>
+  <div class="cwd">cwd: <span id="cwd">...</span></div>
+
+  <h2>Resources (read-only)</h2>
+  <table>
+    <tr><td>sparrow://context</td><td>Your pane ID and environment</td></tr>
+    <tr><td>sparrow://panes</td><td>All open panes with IDs, names, cwds</td></tr>
+    <tr><td>sparrow://panes/{id}/output</td><td>Recent terminal output (last 200 lines)</td></tr>
+  </table>
+
+  <h2>Tools (actions)</h2>
+  <table>
+    <tr><td>create_pane</td><td>Open a new terminal pane</td></tr>
+    <tr><td>close_pane</td><td>Close a pane</td></tr>
+    <tr><td>rename_pane</td><td>Rename a pane's tab label</td></tr>
+    <tr>
+      <td>write_to_pane</td>
+      <td>Type text or send a signal (Ctrl-C/kill)<br><span class="param">signal: SIGINT | SIGTERM</span> <span class="param">focus: bool</span></td>
+    </tr>
+    <tr>
+      <td>run_command</td>
+      <td>Run a command, capture ANSI-stripped output<br><span class="param">wait_for: string</span> <span class="param">focus: bool</span></td>
+    </tr>
+    <tr><td>screenshot</td><td>Capture a PNG screenshot of a pane</td></tr>
+    <tr><td>clipboard</td><td>Read or write the system clipboard</td></tr>
+  </table>
+
+  <h2>Typical Workflow</h2>
+  <div class="workflow">
+    <span class="comment">// <span class="step-num">1</span> Discover your pane ID</span><br>
+    <span class="kw">read</span> <span class="str">sparrow://context</span><br><br>
+
+    <span class="comment">// <span class="step-num">2</span> See what panes are open</span><br>
+    <span class="kw">read</span> <span class="str">sparrow://panes</span><br><br>
+
+    <span class="comment">// <span class="step-num">3</span> Run a command, get clean output</span><br>
+    <span class="fn">sparrow_run_command</span>({<br>
+    &nbsp;&nbsp;<span class="str">pane_id</span>: <span class="str">"..."</span>,<br>
+    &nbsp;&nbsp;<span class="str">command</span>: <span class="str">"npm test"</span>,<br>
+    &nbsp;&nbsp;<span class="str">wait_for</span>: <span class="str">"PASS"</span><br>
+    })<br><br>
+
+    <span class="comment">// <span class="step-num">4</span> Interrupt a stuck process</span><br>
+    <span class="fn">sparrow_write_to_pane</span>({<br>
+    &nbsp;&nbsp;<span class="str">pane_id</span>: <span class="str">"..."</span>,<br>
+    &nbsp;&nbsp;<span class="str">signal</span>: <span class="str">"SIGINT"</span><br>
+    })<br><br>
+
+    <span class="comment">// <span class="step-num">5</span> Open a new pane with a command</span><br>
+    <span class="fn">sparrow_create_pane</span>({<br>
+    &nbsp;&nbsp;<span class="str">name</span>: <span class="str">"build"</span>,<br>
+    &nbsp;&nbsp;<span class="str">command</span>: <span class="str">"npm run dev"</span><br>
+    })
+  </div>
+
+  <script>
+    SparrowBridge.getCwd().then(function(cwd) {
+      document.getElementById('cwd').textContent = cwd || '(unknown)';
+    });
+    SparrowBridge.onCwdChange(function(cwd) {
+      document.getElementById('cwd').textContent = cwd || '(unknown)';
+    });
+    document.getElementById('close-btn').addEventListener('click', function() {
+      SparrowBridge.close();
+    });
+  </script>
+</body>
+</html>

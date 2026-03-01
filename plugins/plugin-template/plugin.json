@@ -1,0 +1,10 @@
+{
+  "name": "my-plugin",
+  "displayName": "My Plugin",
+  "description": "A starter plugin — shows cwd, git branch, and theme colors",
+  "version": "1.0.0",
+  "iconSvg": "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' width='16' height='16'><path d='M12 2L2 7l10 5 10-5-10-5z'/><path d='M2 17l10 5 10-5'/><path d='M2 12l10 5 10-5'/></svg>",
+  "defaultWidth": 300,
+  "minWidth": 200,
+  "placement": "left"
+}
