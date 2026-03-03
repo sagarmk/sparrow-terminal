@@ -20,7 +20,7 @@
 
 ## Install
 
-1. Download **Sparrow-1.0.5-arm64.dmg** from [Releases](../../releases/latest)
+1. Download **Sparrow-1.0.8-arm64.dmg** from [Releases](../../releases/latest)
 2. Open the `.dmg` and drag **Sparrow** to your Applications folder
 3. On first launch, right-click → **Open** to bypass Gatekeeper
 
