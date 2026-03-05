@@ -9,6 +9,12 @@
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/version-1.1.1--beta-blue" alt="Version 1.1.1-beta">
+  <img src="https://img.shields.io/badge/platform-macOS%20(Apple%20Silicon)-lightgrey" alt="macOS Apple Silicon">
+  <img src="https://img.shields.io/badge/status-beta-orange" alt="Beta">
+</p>
+
+<p align="center">
   <a href="#install">Install</a> &middot;
   <a href="#features">Features</a> &middot;
   <a href="#mcp-server">MCP Server</a> &middot;
@@ -18,15 +24,63 @@
 
 ---
 
+> **Beta Release** — This is a beta version of Sparrow. Some features are still under active development. Please report any issues you encounter.
+
 ## Install
 
-1. Download **Sparrow-1.0.8-arm64.dmg** from [Releases](../../releases/latest)
+1. Download **sparrow-1.1.1-beta-arm64.dmg** from [Releases](../../releases/latest)
 2. Open the `.dmg` and drag **Sparrow** to your Applications folder
-3. On first launch, right-click → **Open** to bypass Gatekeeper
+3. Launch Sparrow from your Applications folder
 
-> **Note:** Sparrow is not yet signed with an Apple Developer ID certificate. macOS will show an "unidentified developer" warning on first launch. Right-click the app and select **Open** to proceed — you only need to do this once. Code signing is planned for a future release.
+### macOS Gatekeeper
 
-> Requires **macOS 12** or later (Apple Silicon).
+This build is **not notarized**, so macOS will block it on first launch. To open it:
+
+1. **Right-click** (or Control-click) the app in Finder
+2. Select **Open** from the context menu
+3. Click **Open** in the dialog that appears
+
+If that doesn't work, run this in Terminal **before** your first launch:
+
+```bash
+xattr -cr /Applications/sparrow.app
+```
+
+You only need to do this once — subsequent launches will work normally.
+
+> Requires **macOS 12** (Monterey) or later. Apple Silicon (arm64) only.
+
+---
+
+## What's New in v1.1.1-beta
+
+### Command Palette
+
+Press `Cmd+Shift+R` and type `/` to access 19 built-in commands with fuzzy search, sub-completions, and keyboard navigation.
+
+| Category | Commands |
+|----------|----------|
+| **Terminal** | `/new`, `/split`, `/close`, `/clear`, `/rename`, `/ssh`, `/snippet`, `/broadcast`, `/find` |
+| **Layout** | `/toggle-file-viewer`, `/toggle-git-graph`, `/toggle-tab-groups` |
+| **Git** | `/checkout`, `/merge` |
+| **App** | `/theme`, `/settings`, `/shortcuts`, `/record`, `/mcp` |
+
+- Type `/theme` + Tab to see available themes, select one to apply instantly
+- Type `/ssh` + Tab to pick from saved SSH profiles
+- Arrow keys navigate, Tab completes, Enter executes, Escape closes
+
+### Memory Safety & Configurable Limits
+
+- PTY buffer capped at 4 MB to prevent OOM from high-throughput output
+- Command block history capped at 200 entries
+- Configurable max terminals (default 30) — adjust in Settings (slider 5–100)
+- Proper cleanup of all resources on session destroy
+
+### Git Enhancements
+
+- Improved branch popup with search and quick switching
+- Worktree popup with create, switch, and delete
+- Enhanced git graph visualization
 
 ---
 
@@ -73,7 +127,7 @@ Visual commit graph, branch management, merge, and worktrees. Open files directl
 | **SSH Profiles** | Saved connections with host, user, port, identity file, and jump host |
 | **Clipboard History** | Auto-tracking, pin, search, and re-copy |
 | **Tab Groups** | Color-coded groups, location bookmarks, and command snippets |
-| **Command Bar** | `Cmd+Shift+R` — run commands with `/pane`, `/branch`, `/worktree` flags |
+| **Command Palette** | `Cmd+Shift+R` — 19 commands with fuzzy search, sub-completions, and `/pane`, `/branch`, `/worktree` flags |
 
 ---
 
@@ -287,7 +341,7 @@ Restart Sparrow — your plugin appears in the sidebar. See [`plugins/`](plugins
 | `Cmd+B` | File browser |
 | `Cmd+G` | Git panel |
 | `Cmd+Shift+V` | Clipboard history |
-| `Cmd+Shift+R` | Command bar |
+| `Cmd+Shift+R` | Command palette |
 | `Cmd+Shift+B` | Broadcast input |
 | `Cmd+Shift+H` | Quick select |
 | `Esc` | Close overlay |
