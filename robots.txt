@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sagarmk.github.io/sparrow-terminal/sitemap.xml
+Sitemap: https://sparrowterminal.com/sitemap.xml
