@@ -30,7 +30,7 @@
 
 ## Install
 
-1. Download **sparrow-1.2.1-beta-arm64.dmg** from [Releases](../../releases/latest)
+1. [**Download sparrow-1.2.1-beta-arm64.dmg**](https://github.com/sagarmk/sparrow-terminal/releases/latest/download/sparrow-1.2.1-beta-arm64.dmg)
 2. Open the `.dmg` and drag **Sparrow** to your Applications folder
 3. Launch Sparrow from your Applications folder
 
