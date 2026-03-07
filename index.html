@@ -75,7 +75,7 @@
 
         /* Hero */
         .hero {
-            padding: 140px 24px 80px;
+            padding: 120px 24px 32px;
             text-align: center;
         }
         .hero h1 {
@@ -141,7 +141,7 @@
         /* Hero video */
         .hero-video {
             max-width: 960px;
-            margin: 60px auto 0;
+            margin: 0 auto;
             padding: 0 24px;
         }
         .hero-video video {
@@ -149,6 +149,16 @@
             border-radius: 12px;
             border: 1px solid var(--border);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .hero-video-caption {
+            margin-top: 24px;
+            font-size: 17px;
+            color: var(--text-muted);
+            text-align: center;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
         }
 
         /* Sections */
@@ -350,7 +360,6 @@
 <!-- Hero -->
 <div class="hero">
     <h1>A terminal designed<br>for AI agents</h1>
-    <p>MCP server for AI agents, built-in git with staging &amp; shelving, file explorer with inline diffs, clipboard history, and tab groups — things most terminals don't have.</p>
     <div class="hero-buttons">
         <a class="btn-primary" href="https://github.com/sagarmk/Sparrow-Terminal/releases/latest">
             <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2.75 14A1.75 1.75 0 011 12.25v-2.5a.75.75 0 011.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 00.25-.25v-2.5a.75.75 0 011.5 0v2.5A1.75 1.75 0 0113.25 14H2.75z"/><path d="M7.25 7.689V2a.75.75 0 011.5 0v5.689l1.97-1.969a.749.749 0 111.06 1.06l-3.25 3.25a.749.749 0 01-1.06 0L4.22 6.78a.749.749 0 111.06-1.06l1.97 1.969z"/></svg>
@@ -369,6 +378,7 @@
     <video autoplay loop muted playsinline>
         <source src="assets/sparrow-mcp-demo.mp4" type="video/mp4">
     </video>
+    <p class="hero-video-caption">MCP server for AI agents, built-in git with staging &amp; shelving, file explorer with inline diffs, clipboard history, and tab groups — things most terminals don't have.</p>
 </div>
 
 <!-- Features -->
