@@ -26,13 +26,15 @@
 
 > **Beta Release** — This is a beta version of Sparrow. Some features are still under active development. Please report any issues you encounter.
 
+**What makes Sparrow different?** Most terminals don't have a full git workflow (staging, shelving, cherry pick), a file explorer with inline diffs, clipboard history with snippets, or an MCP server that lets AI agents drive your terminal. Sparrow has all of these built in.
+
 ## Install
 
 1. Download **sparrow-1.2.1-beta-arm64.dmg** from [Releases](../../releases/latest)
 2. Open the `.dmg` and drag **Sparrow** to your Applications folder
 3. Launch Sparrow from your Applications folder
 
-This build is **signed and notarized by Apple** — it will open without any Gatekeeper warnings.
+This build is **signed and notarized by Apple** — it opens instantly with no Gatekeeper warnings and no `xattr` workarounds needed.
 
 > Requires **macOS 12** (Monterey) or later. Apple Silicon (arm64) only.
 
