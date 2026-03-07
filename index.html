@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sparrow — A Modern Terminal for Developers</title>
-    <meta name="description" content="Sparrow is a modern terminal emulator for macOS with AI agent control, split panes, git integration, and an MCP server for Claude Code and Gemini CLI.">
+    <title>Sparrow — A Terminal Designed for AI Agents</title>
+    <meta name="description" content="Sparrow is a terminal designed for AI agents. MCP server for Claude Code and Gemini CLI, split panes, git integration, shelving, file explorer, and more.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -138,13 +138,13 @@
             color: var(--text-muted);
         }
 
-        /* Screenshot */
-        .hero-screenshot {
+        /* Hero video */
+        .hero-video {
             max-width: 960px;
             margin: 60px auto 0;
             padding: 0 24px;
         }
-        .hero-screenshot img {
+        .hero-video video {
             width: 100%;
             border-radius: 12px;
             border: 1px solid var(--border);
@@ -349,8 +349,8 @@
 
 <!-- Hero -->
 <div class="hero">
-    <h1>A modern terminal for<br>developers who ship fast</h1>
-    <p>Split panes, AI agent control, git integration, clipboard history, and an MCP server — all in one terminal.</p>
+    <h1>A terminal designed<br>for AI agents</h1>
+    <p>Let Claude Code, Gemini CLI, or any MCP-compatible agent control your terminal — create panes, run commands, and ship faster.</p>
     <div class="hero-buttons">
         <a class="btn-primary" href="https://github.com/sagarmk/Sparrow-Terminal/releases/latest">
             <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2.75 14A1.75 1.75 0 011 12.25v-2.5a.75.75 0 011.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 00.25-.25v-2.5a.75.75 0 011.5 0v2.5A1.75 1.75 0 0113.25 14H2.75z"/><path d="M7.25 7.689V2a.75.75 0 011.5 0v5.689l1.97-1.969a.749.749 0 111.06 1.06l-3.25 3.25a.749.749 0 01-1.06 0L4.22 6.78a.749.749 0 111.06-1.06l1.97 1.969z"/></svg>
@@ -361,11 +361,14 @@
             View on GitHub
         </a>
     </div>
-    <div class="hero-meta">macOS 12+ &middot; Apple Silicon (arm64) &middot; Free to use</div>
+    <div class="hero-meta">macOS 12+ &middot; Apple Silicon (arm64) &middot; Signed &amp; Notarized &middot; Free to use</div>
 </div>
 
-<div class="hero-screenshot">
-    <img src="assets/screenshots/mcp_control.png" alt="Sparrow terminal with MCP agent control">
+<!-- Hero video — Claude controlling Sparrow via MCP -->
+<div class="hero-video">
+    <video autoplay loop muted playsinline>
+        <source src="assets/sparrow mcp used by claude to control panes.mov" type="video/mp4">
+    </video>
 </div>
 
 <!-- Features -->
@@ -377,6 +380,13 @@
     <div class="features-grid">
         <div class="feature-card">
             <div class="feature-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6m11-7h-6m-6 0H1m16.07-7.07l-4.24 4.24M8.17 15.83l-4.24 4.24m0-12.14l4.24 4.24m7.66 7.66l4.24-4.24"/></svg>
+            </div>
+            <h3>AI Agent Control via MCP</h3>
+            <p>Let Claude Code or Gemini CLI drive your terminal — create panes, run commands, capture output, take screenshots.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
                 <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
             </div>
             <h3>Split Panes</h3>
@@ -384,17 +394,17 @@
         </div>
         <div class="feature-card">
             <div class="feature-icon">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6m11-7h-6m-6 0H1m16.07-7.07l-4.24 4.24M8.17 15.83l-4.24 4.24m0-12.14l4.24 4.24m7.66 7.66l4.24-4.24"/></svg>
-            </div>
-            <h3>AI Agent Control</h3>
-            <p>Let Claude Code or Gemini CLI drive your terminal via MCP — create panes, run commands, capture output.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">
                 <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 009 9"/></svg>
             </div>
             <h3>Git Integration</h3>
-            <p>Visual commit graph, branch management, merge, worktrees, and file diffs — all built in.</p>
+            <p>Visual commit graph, staging, branching, merge, worktrees, shelving, and cherry pick — all built in.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V7.5L14.5 2z"/><path d="M14 2v6h6"/></svg>
+            </div>
+            <h3>File Explorer & Editor</h3>
+            <p>Browse, create, rename, move, and delete files. Edit in Monaco with 50+ languages, Markdown preview, and CSV tables.</p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">
@@ -405,10 +415,10 @@
         </div>
         <div class="feature-card">
             <div class="feature-icon">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V7.5L14.5 2z"/><path d="M14 2v6h6"/></svg>
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             </div>
-            <h3>File Browser & Editor</h3>
-            <p>Browse files, review diffs, revert changes, and edit in Monaco with 50+ language support.</p>
+            <h3>Tab Groups</h3>
+            <p>Color-coded groups for terminals and file tabs. Location bookmarks and reusable command snippets.</p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">
@@ -431,29 +441,28 @@
             <h3>GIF Recording</h3>
             <p>Record terminal sessions as animated GIFs with one click. Perfect for docs and demos.</p>
         </div>
-        <div class="feature-card">
-            <div class="feature-icon">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-            </div>
-            <h3>Plugins</h3>
-            <p>Extend Sparrow with sidebar plugins. HTML + JS panels with access to terminal state and git.</p>
-        </div>
     </div>
 </section>
 
 <!-- Showcase -->
 <div class="showcase">
     <div class="showcase-item">
-        <div class="section-label">File Diffs</div>
-        <h3>See what changed, revert what shouldn't have</h3>
-        <p>Browse your project, review inline diffs, and revert unwanted changes — without leaving the terminal.</p>
-        <img src="assets/screenshots/file_diff.png" alt="File diff view with inline changes">
+        <div class="section-label">File Explorer</div>
+        <h3>Browse, edit, and track file changes</h3>
+        <p>Create files and folders, review inline diffs, and revert unwanted changes — all without leaving the terminal.</p>
+        <img src="assets/sparrow file explorer and updated file diff.png" alt="Sparrow file explorer with inline diff view">
     </div>
     <div class="showcase-item">
         <div class="section-label">Git</div>
-        <h3>Visual commit graph and branch management</h3>
-        <p>Full git tree, branch switching, merge, worktrees, and a built-in file viewer with Monaco editor.</p>
-        <img src="assets/screenshots/git_tree_and_file_viewier.png" alt="Git commit graph and file viewer">
+        <h3>Shelve, stage, cherry pick, and commit</h3>
+        <p>Full git graph with staging, shelving working changes, cherry picking hunks from any commit, and inline commit.</p>
+        <img src="assets/sparrow git shelve and cherry pick working changes.png" alt="Git graph with shelving and cherry pick">
+    </div>
+    <div class="showcase-item">
+        <div class="section-label">Organization</div>
+        <h3>Tab groups, clipboard, and command snippets</h3>
+        <p>Color-coded tab groups for terminals and file tabs. Clipboard history with pinning. Reusable command snippets with parameters.</p>
+        <img src="assets/sparrow tab grouping and clipboard.png" alt="Tab groups, clipboard history, and command snippets">
     </div>
 </div>
 
@@ -521,7 +530,7 @@
         <div class="shortcut-row"><span>File browser</span><kbd>Cmd+B</kbd></div>
         <div class="shortcut-row"><span>Git panel</span><kbd>Cmd+G</kbd></div>
         <div class="shortcut-row"><span>Clipboard history</span><kbd>Cmd+Shift+V</kbd></div>
-        <div class="shortcut-row"><span>Command bar</span><kbd>Cmd+Shift+R</kbd></div>
+        <div class="shortcut-row"><span>Command palette</span><kbd>Cmd+Shift+R</kbd></div>
         <div class="shortcut-row"><span>Broadcast input</span><kbd>Cmd+Shift+B</kbd></div>
         <div class="shortcut-row"><span>Quick select</span><kbd>Cmd+Shift+H</kbd></div>
         <div class="shortcut-row"><span>Search selected text</span><kbd>Cmd+D</kbd></div>

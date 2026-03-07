@@ -5,11 +5,11 @@
 <h1 align="center">Sparrow</h1>
 
 <p align="center">
-  A modern terminal for developers who ship fast.
+  A terminal designed for AI agents.
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.1.1--beta-blue" alt="Version 1.1.1-beta">
+  <img src="https://img.shields.io/badge/version-1.2.0--beta-blue" alt="Version 1.2.1-beta">
   <img src="https://img.shields.io/badge/platform-macOS%20(Apple%20Silicon)-lightgrey" alt="macOS Apple Silicon">
   <img src="https://img.shields.io/badge/status-beta-orange" alt="Beta">
 </p>
@@ -28,59 +28,13 @@
 
 ## Install
 
-1. Download **sparrow-1.1.1-beta-arm64.dmg** from [Releases](../../releases/latest)
+1. Download **sparrow-1.2.1-beta-arm64.dmg** from [Releases](../../releases/latest)
 2. Open the `.dmg` and drag **Sparrow** to your Applications folder
 3. Launch Sparrow from your Applications folder
 
-### macOS Gatekeeper
-
-This build is **not notarized**, so macOS will block it on first launch. To open it:
-
-1. **Right-click** (or Control-click) the app in Finder
-2. Select **Open** from the context menu
-3. Click **Open** in the dialog that appears
-
-If that doesn't work, run this in Terminal **before** your first launch:
-
-```bash
-xattr -cr /Applications/sparrow.app
-```
-
-You only need to do this once — subsequent launches will work normally.
+This build is **signed and notarized by Apple** — it will open without any Gatekeeper warnings.
 
 > Requires **macOS 12** (Monterey) or later. Apple Silicon (arm64) only.
-
----
-
-## What's New in v1.1.1-beta
-
-### Command Palette
-
-Press `Cmd+Shift+R` and type `/` to access 19 built-in commands with fuzzy search, sub-completions, and keyboard navigation.
-
-| Category | Commands |
-|----------|----------|
-| **Terminal** | `/new`, `/split`, `/close`, `/clear`, `/rename`, `/ssh`, `/snippet`, `/broadcast`, `/find` |
-| **Layout** | `/toggle-file-viewer`, `/toggle-git-graph`, `/toggle-tab-groups` |
-| **Git** | `/checkout`, `/merge` |
-| **App** | `/theme`, `/settings`, `/shortcuts`, `/record`, `/mcp` |
-
-- Type `/theme` + Tab to see available themes, select one to apply instantly
-- Type `/ssh` + Tab to pick from saved SSH profiles
-- Arrow keys navigate, Tab completes, Enter executes, Escape closes
-
-### Memory Safety & Configurable Limits
-
-- PTY buffer capped at 4 MB to prevent OOM from high-throughput output
-- Command block history capped at 200 entries
-- Configurable max terminals (default 30) — adjust in Settings (slider 5–100)
-- Proper cleanup of all resources on session destroy
-
-### Git Enhancements
-
-- Improved branch popup with search and quick switching
-- Worktree popup with create, switch, and delete
-- Enhanced git graph visualization
 
 ---
 
@@ -88,26 +42,32 @@ Press `Cmd+Shift+R` and type `/` to access 19 built-in commands with fuzzy searc
 
 ### AI Agent Control via MCP
 
-Let Claude Code, Gemini CLI, or any MCP-compatible agent control your terminal — create panes, run commands, capture output, and manage clipboard. Group tabs, pin clipboard entries, and work across multiple panes at once.
+Let Claude Code, Gemini CLI, or any MCP-compatible agent control your terminal — create panes, run commands, capture output, and take screenshots.
+
+https://github.com/user-attachments/assets/sparrow-mcp-demo.mov
+
+### File Explorer & Diff
+
+Browse your project, create files and folders, review inline diffs, and revert unwanted changes — all without leaving the terminal.
 
 <p align="center">
-  <img src="assets/screenshots/mcp_control.png" width="800" alt="MCP agent controlling Sparrow — tab groups, clipboard history, and multi-pane workflow">
+  <img src="assets/sparrow file explorer and updated file diff.png" width="800" alt="File explorer with inline diff view">
 </p>
 
-### File Diff & Revert
+### Git Graph — Shelve, Stage, Cherry Pick
 
-Browse your project with the built-in file explorer. See exactly what changed in each file, review diffs inline, and revert unwanted changes — all without leaving the terminal.
+Full git graph with staging, shelving working changes, cherry picking hunks from any commit, and inline commit.
 
 <p align="center">
-  <img src="assets/screenshots/file_diff.png" width="800" alt="File diff view with inline changes and revert">
+  <img src="assets/sparrow git shelve and cherry pick working changes.png" width="800" alt="Git graph with shelving and cherry pick">
 </p>
 
-### Git Tree & File Viewer
+### Tab Groups & Clipboard
 
-Visual commit graph, branch management, merge, and worktrees. Open files directly in the built-in Monaco editor with support for 50+ languages, Markdown preview, and CSV tables.
+Color-coded tab groups for terminals and file tabs. Clipboard history with pinning. Reusable command snippets with parameters.
 
 <p align="center">
-  <img src="assets/screenshots/git_tree_and_file_viewier.png" width="800" alt="Git commit graph with CSV file viewer">
+  <img src="assets/sparrow tab grouping and clipboard.png" width="800" alt="Tab groups, clipboard history, and command snippets">
 </p>
 
 ### Everything Else
@@ -126,7 +86,11 @@ Visual commit graph, branch management, merge, and worktrees. Open files directl
 | **Finder Integration** | Drag a folder to the dock icon or use `open -a Sparrow /path` |
 | **SSH Profiles** | Saved connections with host, user, port, identity file, and jump host |
 | **Clipboard History** | Auto-tracking, pin, search, and re-copy |
-| **Tab Groups** | Color-coded groups, location bookmarks, and command snippets |
+| **Tab Groups** | Color-coded groups for terminals and file tabs, location bookmarks, and command snippets |
+| **File Explorer** | Create, rename, move, copy, and delete files and folders — right-click context menu with paste support |
+| **Git Staging** | Stage, unstage, and commit files directly from the Git panel — click-to-select with Cmd+click multi-select |
+| **Shelving** | Stash working changes as named shelves, restore later — auto-cleanup when changes are committed |
+| **Cherry Pick** | Apply individual hunks from any commit's diff to your working tree |
 | **Command Palette** | `Cmd+Shift+R` — 19 commands with fuzzy search, sub-completions, and `/pane`, `/branch`, `/worktree` flags |
 
 ---
