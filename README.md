@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.4.0--beta-blue" alt="Version 1.4.0-beta">
+  <img src="https://img.shields.io/badge/version-1.4.0--beta-blue" alt="Version 1.4.1-beta">
   <img src="https://img.shields.io/badge/platform-macOS%20(Apple%20Silicon)-lightgrey" alt="macOS Apple Silicon">
   <img src="https://img.shields.io/badge/status-beta-orange" alt="Beta">
 </p>
@@ -38,7 +38,7 @@ brew install sagarmk/sparrow/sparrow-terminal
 
 ### Manual download
 
-1. [**Download sparrow-1.4.0-beta-arm64.dmg**](https://github.com/sagarmk/sparrow-terminal/releases/latest/download/sparrow-1.4.0-beta-arm64.dmg)
+1. [**Download sparrow-1.4.1-beta-arm64.dmg**](https://github.com/sagarmk/sparrow-terminal/releases/latest/download/sparrow-1.4.1-beta-arm64.dmg)
 2. Open the `.dmg` and drag **Sparrow** to your Applications folder
 3. Launch Sparrow from your Applications folder
 
@@ -318,6 +318,7 @@ Restart Sparrow — your plugin appears in the sidebar. See [`plugins/`](plugins
 | `Cmd+Shift+R` | Command palette |
 | `Cmd+Shift+B` | Broadcast input |
 | `Cmd+Shift+H` | Quick select |
+| `Cmd+Shift+Space` | Voice input (hold to speak) |
 | `Esc` | Close overlay |
 
 ## Requirements
