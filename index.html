@@ -55,8 +55,23 @@
     }
     </script>
 
-    <!-- Analytics (GoatCounter — privacy-friendly, no cookies, free for open source) -->
-    <script data-goatcounter="https://sparrow-terminal.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <!-- Google Analytics (loads only after cookie consent) -->
+    <script>
+      function loadGA() {
+        if (document.getElementById('ga-script')) return;
+        var s = document.createElement('script');
+        s.id = 'ga-script';
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-H70VWJ1HG4';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-H70VWJ1HG4');
+      }
+      if (localStorage.getItem('cookie-consent') === 'accepted') { loadGA(); }
+    </script>
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -383,6 +398,44 @@
             color: var(--text-muted);
         }
 
+        /* Cookie consent */
+        .cookie-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            z-index: 9999;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+            max-width: 520px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .cookie-banner button {
+            border: none;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .cookie-accept {
+            background: var(--accent);
+            color: #fff;
+        }
+        .cookie-decline {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border) !important;
+        }
+
         /* Mobile */
         @media (max-width: 640px) {
             .hero h1 { font-size: 36px; }
@@ -603,6 +656,27 @@
 <footer>
     <p>Sparrow &middot; Built by <a href="https://github.com/sagarmk">Spriggan AI Inc</a> &middot; macOS 12+ &middot; Apple Silicon</p>
 </footer>
+
+<!-- Cookie consent banner -->
+<div class="cookie-banner" id="cookie-banner" style="display:none">
+    <span>We use cookies to understand how people find and use Sparrow.</span>
+    <button class="cookie-accept" onclick="acceptCookies()">Accept</button>
+    <button class="cookie-decline" onclick="declineCookies()">Decline</button>
+</div>
+<script>
+    if (!localStorage.getItem('cookie-consent')) {
+        document.getElementById('cookie-banner').style.display = 'flex';
+    }
+    function acceptCookies() {
+        localStorage.setItem('cookie-consent', 'accepted');
+        document.getElementById('cookie-banner').style.display = 'none';
+        loadGA();
+    }
+    function declineCookies() {
+        localStorage.setItem('cookie-consent', 'declined');
+        document.getElementById('cookie-banner').style.display = 'none';
+    }
+</script>
 
 </body>
 </html>
