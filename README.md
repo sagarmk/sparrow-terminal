@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.4.2--beta-blue" alt="Version 1.5.0-beta">
+  <img src="https://img.shields.io/badge/version-1.5.0--beta-blue" alt="Version 1.5.0-beta">
   <img src="https://img.shields.io/badge/platform-macOS%20(Apple%20Silicon)-lightgrey" alt="macOS Apple Silicon">
   <img src="https://img.shields.io/badge/status-beta-orange" alt="Beta">
 </p>
