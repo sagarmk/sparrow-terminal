@@ -30,6 +30,14 @@
 
 ## Install
 
+### Homebrew (recommended)
+
+```bash
+brew install sagarmk/sparrow/sparrow-terminal
+```
+
+### Manual download
+
 1. [**Download sparrow-1.3.1-beta-arm64.dmg**](https://github.com/sagarmk/sparrow-terminal/releases/latest/download/sparrow-1.3.1-beta-arm64.dmg)
 2. Open the `.dmg` and drag **Sparrow** to your Applications folder
 3. Launch Sparrow from your Applications folder
