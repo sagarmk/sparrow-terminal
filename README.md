@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.4.0--beta-blue" alt="Version 1.4.2-beta">
+  <img src="https://img.shields.io/badge/version-1.4.2--beta-blue" alt="Version 1.4.2-beta">
   <img src="https://img.shields.io/badge/platform-macOS%20(Apple%20Silicon)-lightgrey" alt="macOS Apple Silicon">
   <img src="https://img.shields.io/badge/status-beta-orange" alt="Beta">
 </p>
@@ -80,10 +80,15 @@ Color-coded tab groups for terminals and file tabs. Clipboard history with pinni
   <img src="assets/sparrow tab grouping and clipboard.png" width="800" alt="Tab groups, clipboard history, and command snippets">
 </p>
 
+### Voice Input
+
+Speak commands instead of typing — hold `Cmd+Shift+Space` or the mic button in the title bar. Native macOS speech recognition runs on-device with no cloud APIs. A live transcript appears as you speak, and the text is written to the terminal at your cursor when you release.
+
 ### Everything Else
 
 | Feature | |
 |---|---|
+| **Voice Input** | Hold `Cmd+Shift+Space` or the mic button — on-device speech-to-text, typed at your cursor |
 | **Split Panes** | Vertical and horizontal splits — work in multiple terminals side by side |
 | **Tabs** | Dynamic titles that reflect the running process and working directory |
 | **Session Restore** | Tabs, panes, and working directories are saved and restored on relaunch |

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sparrow — A Terminal Designed for AI Agents</title>
-    <meta name="description" content="Sparrow is a macOS terminal designed for AI agents. MCP server for Claude Code and Gemini CLI, built-in git with staging and shelving, file explorer with inline diffs, clipboard history, tab groups, and more.">
+    <meta name="description" content="Sparrow is a macOS terminal designed for AI agents. Voice input, MCP server for Claude Code and Gemini CLI, built-in git with staging and shelving, file explorer with inline diffs, clipboard history, tab groups, and more.">
     <meta name="keywords" content="terminal, macOS, AI agents, MCP server, Claude Code, Gemini CLI, git staging, shelving, cherry pick, file explorer, inline diff, clipboard history, tab groups, split panes, developer tools">
     <meta name="author" content="Spriggan AI Inc">
     <meta name="robots" content="index, follow">
@@ -20,7 +20,7 @@
     <!-- Open Graph (Facebook, LinkedIn, Discord, Slack) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Sparrow — A Terminal Designed for AI Agents">
-    <meta property="og:description" content="MCP server for Claude Code and Gemini CLI, built-in git with staging and shelving, file explorer with inline diffs, clipboard history, and tab groups — things most terminals don't have.">
+    <meta property="og:description" content="Voice input, MCP server for Claude Code and Gemini CLI, built-in git with staging and shelving, file explorer with inline diffs, clipboard history, and tab groups — things most terminals don't have.">
     <meta property="og:image" content="https://sparrowterminal.com/assets/sparrow%20tab%20grouping%20and%20clipboard.png">
     <meta property="og:url" content="https://sparrowterminal.com/">
     <meta property="og:site_name" content="Sparrow">
@@ -28,7 +28,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sparrow — A Terminal Designed for AI Agents">
-    <meta name="twitter:description" content="MCP server for AI agents, built-in git with staging & shelving, file explorer with inline diffs, clipboard history, and tab groups.">
+    <meta name="twitter:description" content="Voice input, MCP server for AI agents, built-in git with staging & shelving, file explorer with inline diffs, clipboard history, and tab groups.">
     <meta name="twitter:image" content="https://sparrowterminal.com/assets/sparrow%20tab%20grouping%20and%20clipboard.png">
 
     <!-- Structured Data (JSON-LD) -->
@@ -37,7 +37,7 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Sparrow",
-      "description": "A macOS terminal designed for AI agents. MCP server for Claude Code and Gemini CLI, built-in git with staging and shelving, file explorer with inline diffs, clipboard history, and tab groups.",
+      "description": "A macOS terminal designed for AI agents. Voice input, MCP server for Claude Code and Gemini CLI, built-in git with staging and shelving, file explorer with inline diffs, clipboard history, and tab groups.",
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "macOS",
       "offers": {
@@ -490,7 +490,7 @@
     <video autoplay loop muted playsinline>
         <source src="assets/sparrow-mcp-demo.mp4" type="video/mp4">
     </video>
-    <p class="hero-video-caption">MCP server for AI agents, built-in git with staging &amp; shelving, file explorer with inline diffs, clipboard history, and tab groups — things most terminals don't have.</p>
+    <p class="hero-video-caption">Voice input, MCP server for AI agents, built-in git with staging &amp; shelving, file explorer with inline diffs, clipboard history, and tab groups — things most terminals don't have.</p>
 </div>
 
 <!-- Features -->
@@ -506,6 +506,13 @@
             </div>
             <h3>AI Agent Control via MCP</h3>
             <p>Let Claude Code or Gemini CLI drive your terminal — create panes, run commands, capture output, take screenshots.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
+            </div>
+            <h3>Voice Input</h3>
+            <p>Hold <code>Cmd+Shift+Space</code> or the mic button to speak commands. Native on-device speech recognition — no cloud APIs, no latency. Text appears at your cursor when you release.</p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">
