@@ -9,9 +9,13 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.6.3--beta-blue" alt="Version 1.8.0-beta">
+  <img src="https://img.shields.io/badge/version-1.8.0--beta-blue" alt="Version 1.8.0-beta">
   <img src="https://img.shields.io/badge/platform-macOS%20(Apple%20Silicon)-lightgrey" alt="macOS Apple Silicon">
   <img src="https://img.shields.io/badge/status-beta-orange" alt="Beta">
+</p>
+
+<p align="center">
+  <a href="https://www.producthunt.com/products/sparrow-7/reviews/new?utm_source=badge-product_review&utm_medium=badge&utm_source=badge-sparrow-7" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=1176357&theme=dark" alt="Sparrow - A terminal designed for AI agents | Product Hunt" width="250" height="54" /></a>
 </p>
 
 <p align="center">
