@@ -1,6 +1,6 @@
 cask "sparrow-terminal" do
-  version "1.6.2-beta"
-  sha256 "44f86eb232e30958b571fb23d0884cffdcbf838c107e6728a51f1499b3db9881"
+  version "1.6.3-beta"
+  sha256 "66fecf566f42d9209b5265ececde5c8b481d7fe1810d17d0ad573c1981d389ed"
 
   url "https://github.com/sagarmk/sparrow-terminal/releases/download/v#{version}/sparrow-#{version}-arm64.dmg"
   name "Sparrow"
