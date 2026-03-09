@@ -6,9 +6,6 @@ node_modules/
 releases/*.zip
 releases/*.dmg
 
-# Build output
-mcp-server/dist/
-
 # Claude Code
 .claude/
 
