@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.6.3--beta-blue" alt="Version 1.7.0-beta">
+  <img src="https://img.shields.io/badge/version-1.6.3--beta-blue" alt="Version 1.8.0-beta">
   <img src="https://img.shields.io/badge/platform-macOS%20(Apple%20Silicon)-lightgrey" alt="macOS Apple Silicon">
   <img src="https://img.shields.io/badge/status-beta-orange" alt="Beta">
 </p>
@@ -38,7 +38,7 @@ brew install sagarmk/sparrow/sparrow-terminal
 
 ### Manual download
 
-1. [**Download sparrow-1.7.0-beta-arm64.dmg**](https://github.com/sagarmk/sparrow-terminal/releases/latest/download/sparrow-1.7.0-beta-arm64.dmg)
+1. [**Download sparrow-1.8.0-beta-arm64.dmg**](https://github.com/sagarmk/sparrow-terminal/releases/latest/download/sparrow-1.8.0-beta-arm64.dmg)
 2. Open the `.dmg` and drag **Sparrow** to your Applications folder
 3. Launch Sparrow from your Applications folder
 
@@ -88,6 +88,7 @@ Speak commands instead of typing — hold `Cmd+Shift+Space` or the mic button in
 
 | Feature | |
 |---|---|
+| **Code Editor** | Built-in Monaco editor with syntax highlighting, diff view, and `Cmd+S` to save |
 | **Split Panes** | Vertical and horizontal splits — work in multiple terminals side by side |
 | **Tabs** | Dynamic titles that reflect the running process and working directory |
 | **Session Restore** | Tabs, panes, and working directories are saved and restored on relaunch |
