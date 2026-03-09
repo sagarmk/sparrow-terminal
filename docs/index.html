@@ -75,7 +75,25 @@
         if (window.gtag) {
           gtag('event', 'download', { event_category: 'dmg', event_label: source });
         }
+        if (window.posthog) {
+          posthog.capture('download_clicked', { source: source });
+        }
       }
+    </script>
+
+    <!-- PostHog Analytics (loads only after cookie consent) -->
+    <script>
+      function loadPostHog() {
+        if (window.posthog) return;
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('phc_Le8yJKqvanVtY2p3lXZwjCt6wMMAOca2tZLnOneVze7', {
+          api_host: 'https://us.i.posthog.com',
+          person_profiles: 'identified_only',
+          capture_pageview: true,
+          capture_pageleave: true
+        });
+      }
+      if (localStorage.getItem('cookie-consent') === 'accepted') { loadPostHog(); }
     </script>
 
     <style>
@@ -459,14 +477,21 @@
             Sparrow
         </div>
         <div class="nav-links">
-            <a href="#features">Features</a>
-            <a href="#mcp">MCP Server</a>
-            <a href="#plugins">Plugins</a>
-            <a href="#shortcuts">Shortcuts</a>
+            <a href="#features" onclick="trackEvent('nav_clicked', {section: 'features'})">Features</a>
+            <a href="#mcp" onclick="trackEvent('nav_clicked', {section: 'mcp'})">MCP Server</a>
+            <a href="#plugins" onclick="trackEvent('nav_clicked', {section: 'plugins'})">Plugins</a>
+            <a href="#shortcuts" onclick="trackEvent('nav_clicked', {section: 'shortcuts'})">Shortcuts</a>
         </div>
         <a class="nav-download" href="https://github.com/sagarmk/sparrow-terminal/releases/latest/download/sparrow-1.6.1-beta-arm64.dmg" onclick="trackDownload('nav')">Download</a>
     </div>
 </nav>
+
+<!-- Tracking helpers -->
+<script>
+function trackEvent(name, props) {
+    if (window.posthog) { posthog.capture(name, props); }
+}
+</script>
 
 <!-- Hero -->
 <div class="hero">
@@ -476,13 +501,13 @@
             <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2.75 14A1.75 1.75 0 011 12.25v-2.5a.75.75 0 011.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 00.25-.25v-2.5a.75.75 0 011.5 0v2.5A1.75 1.75 0 0113.25 14H2.75z"/><path d="M7.25 7.689V2a.75.75 0 011.5 0v5.689l1.97-1.969a.749.749 0 111.06 1.06l-3.25 3.25a.749.749 0 01-1.06 0L4.22 6.78a.749.749 0 111.06-1.06l1.97 1.969z"/></svg>
             Download for macOS
         </a>
-        <a class="btn-secondary" href="https://github.com/sagarmk/Sparrow-Terminal">
+        <a class="btn-secondary" href="https://github.com/sagarmk/Sparrow-Terminal" onclick="trackEvent('github_clicked', {source: 'hero'})">
             <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
             View on GitHub
         </a>
     </div>
     <div class="hero-meta">macOS 12+ &middot; Apple Silicon (arm64) &middot; Signed &amp; Notarized by Apple &middot; No Gatekeeper warnings &middot; Free to use</div>
-    <div class="hero-meta" style="margin-top: 12px; font-family: 'SF Mono', 'Fira Code', monospace; background: rgba(255,255,255,0.04); padding: 8px 16px; border-radius: 8px; display: inline-block; border: 1px solid rgba(255,255,255,0.06);">brew install sagarmk/sparrow/sparrow-terminal</div>
+    <div class="hero-meta" style="margin-top: 12px; font-family: 'SF Mono', 'Fira Code', monospace; background: rgba(255,255,255,0.04); padding: 8px 16px; border-radius: 8px; display: inline-block; border: 1px solid rgba(255,255,255,0.06); cursor: pointer;" onclick="navigator.clipboard.writeText('brew install sagarmk/sparrow/sparrow-terminal'); this.dataset.orig = this.textContent; this.textContent = 'Copied!'; trackEvent('homebrew_copied'); setTimeout(() => this.textContent = this.dataset.orig, 1500);" title="Click to copy">brew install sagarmk/sparrow/sparrow-terminal</div>
 </div>
 
 <!-- Hero video — Claude controlling Sparrow via MCP -->
@@ -667,7 +692,7 @@
 </section>
 
 <footer>
-    <p>Sparrow &middot; Built by <a href="https://github.com/sagarmk">Spriggan AI Inc</a> &middot; macOS 12+ &middot; Apple Silicon</p>
+    <p>Sparrow &middot; Built by <a href="https://github.com/sagarmk" onclick="trackEvent('github_clicked', {source: 'footer'})">Spriggan AI Inc</a> &middot; macOS 12+ &middot; Apple Silicon</p>
 </footer>
 
 <!-- Cookie consent banner -->
@@ -684,11 +709,29 @@
         localStorage.setItem('cookie-consent', 'accepted');
         document.getElementById('cookie-banner').style.display = 'none';
         loadGA();
+        loadPostHog();
     }
     function declineCookies() {
         localStorage.setItem('cookie-consent', 'declined');
         document.getElementById('cookie-banner').style.display = 'none';
     }
+
+    // Section visibility tracking via IntersectionObserver
+    (function() {
+        if (!('IntersectionObserver' in window)) return;
+        var tracked = {};
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !tracked[entry.target.id]) {
+                    tracked[entry.target.id] = true;
+                    trackEvent('section_viewed', { section: entry.target.id });
+                }
+            });
+        }, { threshold: 0.3 });
+        document.querySelectorAll('section[id]').forEach(function(el) {
+            observer.observe(el);
+        });
+    })();
 </script>
 
 </body>
