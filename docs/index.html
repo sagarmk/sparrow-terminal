@@ -459,6 +459,62 @@
             border: 1px solid var(--border) !important;
         }
 
+        /* Feedback form */
+        .feedback-form {
+            max-width: 520px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .feedback-form input,
+        .feedback-form textarea,
+        .feedback-form select {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+            box-sizing: border-box;
+        }
+        .feedback-form input:focus,
+        .feedback-form textarea:focus,
+        .feedback-form select:focus {
+            border-color: var(--accent);
+        }
+        .feedback-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .feedback-form select option {
+            background: var(--card);
+            color: var(--text);
+        }
+        .feedback-submit {
+            padding: 12px 32px;
+            border-radius: 10px;
+            border: none;
+            background: var(--accent);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            align-self: flex-start;
+        }
+        .feedback-submit:hover { opacity: 0.85; }
+        .feedback-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+        .feedback-success {
+            color: #50fa7b;
+            font-size: 14px;
+            display: none;
+        }
+
         /* Mobile */
         @media (max-width: 640px) {
             .hero h1 { font-size: 36px; }
@@ -481,6 +537,7 @@
             <a href="#mcp" onclick="trackEvent('nav_clicked', {section: 'mcp'})">MCP Server</a>
             <a href="#plugins" onclick="trackEvent('nav_clicked', {section: 'plugins'})">Plugins</a>
             <a href="#shortcuts" onclick="trackEvent('nav_clicked', {section: 'shortcuts'})">Shortcuts</a>
+            <a href="#feedback" onclick="trackEvent('nav_clicked', {section: 'feedback'})">Feedback</a>
         </div>
         <a class="nav-download" href="https://github.com/sagarmk/sparrow-terminal/releases/latest/download/sparrow-1.8.0-beta-arm64.dmg" onclick="trackDownload('nav')">Download</a>
     </div>
@@ -690,6 +747,64 @@ function trackEvent(name, props) {
         <div class="shortcut-row"><span>Search selected text</span><kbd>Cmd+D</kbd></div>
     </div>
 </section>
+
+<!-- Feedback -->
+<section id="feedback">
+    <div class="section-label">Feedback</div>
+    <h2>Help us make Sparrow better</h2>
+    <p>Bug reports, feature requests, or just a quick thought — all welcome.</p>
+
+    <form class="feedback-form" id="feedback-form" onsubmit="submitFeedback(event)">
+        <input type="email" name="email" placeholder="Email (optional)">
+        <select name="type" required>
+            <option value="" disabled selected>What kind of feedback?</option>
+            <option value="bug">Bug report</option>
+            <option value="feature">Feature request</option>
+            <option value="general">General feedback</option>
+        </select>
+        <textarea name="message" placeholder="Tell us more..." required></textarea>
+        <button type="submit" class="feedback-submit" id="feedback-btn">Send Feedback</button>
+        <div class="feedback-success" id="feedback-success">Thanks! Your feedback has been received.</div>
+    </form>
+</section>
+
+<script>
+async function submitFeedback(e) {
+    e.preventDefault();
+    var form = document.getElementById('feedback-form');
+    var btn = document.getElementById('feedback-btn');
+    var success = document.getElementById('feedback-success');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    try {
+        var res = await fetch('https://dzvkzbbmlhrzpriosigf.supabase.co/rest/v1/sparrow_feedback', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6dmt6YmJtbGhyenByaW9zaWdmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI0ODEwOTIsImV4cCI6MjA3ODA1NzA5Mn0.7hwe9wjuGpVi2EkjE5YiPtwjFN-pEaT2BzJmEQSiuU8',
+                'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify({
+                email: form.email.value || null,
+                type: form.type.value,
+                message: form.message.value,
+                user_agent: navigator.userAgent
+            })
+        });
+        if (!res.ok) throw new Error('Server error');
+        trackEvent('feedback_submitted', { type: form.type.value });
+        form.reset();
+        success.style.display = 'block';
+        btn.textContent = 'Send Feedback';
+        btn.disabled = false;
+        setTimeout(function() { success.style.display = 'none'; }, 5000);
+    } catch (err) {
+        btn.textContent = 'Send Feedback';
+        btn.disabled = false;
+        alert('Failed to send — please try again.');
+    }
+}
+</script>
 
 <footer>
     <p>Sparrow &middot; Built by <a href="https://github.com/sagarmk" onclick="trackEvent('github_clicked', {source: 'footer'})">Spriggan AI Inc</a> &middot; macOS 12+ &middot; Apple Silicon</p>
