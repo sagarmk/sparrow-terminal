@@ -58,7 +58,9 @@ This build is **signed and notarized by Apple** — it opens instantly with no G
 
 Let Claude Code, Gemini CLI, or any MCP-compatible agent control your terminal — create panes, run commands, capture output, and take screenshots.
 
-https://github.com/user-attachments/assets/sparrow-mcp-demo.mov
+<p align="center">
+  <img src="docs/assets/sparrow-mcp-control.gif" width="800" alt="Claude controlling multiple terminal panes via MCP">
+</p>
 
 ### File Explorer & Diff
 
