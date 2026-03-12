@@ -9,13 +9,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.8.0--beta-blue" alt="Version 1.9.0-beta">
+  <img src="https://img.shields.io/badge/version-1.9.0-blue" alt="Version 1.9.0">
   <img src="https://img.shields.io/badge/platform-macOS%20(Apple%20Silicon)-lightgrey" alt="macOS Apple Silicon">
-  <img src="https://img.shields.io/badge/status-beta-orange" alt="Beta">
-</p>
-
-<p align="center">
-  <a href="https://www.producthunt.com/products/sparrow-7/reviews/new?utm_source=badge-product_review&utm_medium=badge&utm_source=badge-sparrow-7" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=1176357&theme=dark" alt="Sparrow - A terminal designed for AI agents | Product Hunt" width="250" height="54" /></a>
+  <a href="https://apps.apple.com/app/sparrow-terminal/id6760443327"><img src="https://img.shields.io/badge/Mac_App_Store-Download-black?logo=apple" alt="Mac App Store"></a>
 </p>
 
 <p align="center">
@@ -28,27 +24,15 @@
 
 ---
 
-> **Beta Release** — Some features are still under active development. Please report any issues you encounter.
-
 **What makes Sparrow different?** Most terminals don't have a full git workflow (staging, shelving, cherry pick), a file explorer with inline diffs, clipboard history with snippets, or an MCP server that lets AI agents drive your terminal. Sparrow has all of these built in.
 
 ## Install
 
-### Homebrew (recommended)
+### Mac App Store
 
-```bash
-brew install sagarmk/sparrow/sparrow-terminal
-```
+[**Download Sparrow on the Mac App Store**](https://apps.apple.com/app/sparrow-terminal/id6760443327)
 
-### Manual download
-
-1. [**Download sparrow-1.9.0-beta-arm64.dmg**](https://github.com/sagarmk/sparrow-terminal/releases/latest/download/sparrow-1.9.0-beta-arm64.dmg)
-2. Open the `.dmg` and drag **Sparrow** to your Applications folder
-3. Launch Sparrow from your Applications folder
-
-This build is **signed and notarized by Apple** — it opens instantly with no Gatekeeper warnings and no `xattr` workarounds needed.
-
-> Requires **macOS 12** (Monterey) or later. Apple Silicon (arm64) only.
+> Requires **macOS 12** (Monterey) or later. Apple Silicon (arm64).
 
 ---
 
