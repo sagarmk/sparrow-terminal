@@ -9,9 +9,10 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.9.0-blue" alt="Version 1.9.0">
+  <img src="https://img.shields.io/badge/version-1.9.8-blue" alt="Version 1.9.8">
   <img src="https://img.shields.io/badge/platform-macOS%20(Apple%20Silicon)-lightgrey" alt="macOS Apple Silicon">
-  <a href="https://apps.apple.com/app/sparrow-terminal/id6760443327"><img src="https://img.shields.io/badge/Mac_App_Store-Download-black?logo=apple" alt="Mac App Store"></a>
+  <a href="https://github.com/sagarmk/sparrow-terminal/releases/latest"><img src="https://img.shields.io/badge/Download-DMG-blue?logo=apple" alt="Download DMG"></a>
+  <a href="https://apps.apple.com/app/sparrow-terminal/id6760443327"><img src="https://img.shields.io/badge/Mac_App_Store-Coming_Soon-grey?logo=apple" alt="Mac App Store"></a>
 </p>
 
 <p align="center">
@@ -28,9 +29,15 @@
 
 ## Install
 
+### Direct Download (Recommended)
+
+[**Download Sparrow v1.9.8 (DMG)**](https://github.com/sagarmk/sparrow-terminal/releases/latest)
+
+Signed and notarized by Apple. Open the DMG and drag Sparrow to Applications.
+
 ### Mac App Store
 
-[**Download Sparrow on the Mac App Store**](https://apps.apple.com/app/sparrow-terminal/id6760443327)
+Coming soon — [pending review](https://apps.apple.com/app/sparrow-terminal/id6760443327).
 
 > Requires **macOS 12** (Monterey) or later. Apple Silicon (arm64).
 
