@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-2.0.1-blue" alt="Version 2.0.1">
+  <img src="https://img.shields.io/badge/version-2.0.2-blue" alt="Version 2.0.2">
   <img src="https://img.shields.io/badge/platform-macOS%20(Apple%20Silicon)-lightgrey" alt="macOS Apple Silicon">
   <a href="https://github.com/sagarmk/sparrow-terminal/releases/latest"><img src="https://img.shields.io/badge/Download-DMG-blue?logo=apple" alt="Download DMG"></a>
   <a href="https://apps.apple.com/app/sparrow-terminal/id6760443327"><img src="https://img.shields.io/badge/Mac_App_Store-Coming_Soon-grey?logo=apple" alt="Mac App Store"></a>
@@ -31,7 +31,7 @@
 
 ### Direct Download (Recommended)
 
-[**Download Sparrow v2.0.1 (DMG)**](https://github.com/sagarmk/sparrow-terminal/releases/latest)
+[**Download Sparrow v2.0.2 (DMG)**](https://github.com/sagarmk/sparrow-terminal/releases/latest)
 
 Signed and notarized by Apple. Open the DMG and drag Sparrow to Applications.
 
